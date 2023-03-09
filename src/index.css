@@ -1,3 +1,91 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+* {
+  color: #278843 !important;
+}
+
+input,
+input:hover,
+input:focus,
+input:active,
+a,
+a:hover,
+a:focus,
+a:active {
+  outline: none;
+}
+
+input::placeholder {
+  color: #129637;
+  font-weight: 600;
+}
+
+.homePageBody {
+  background: linear-gradient(to right, #2788425e, #2788425e),
+    url("./assets/bg.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.loginForm {
+  background: rgba(255, 255, 255, 0.83);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.46);
+}
+
+.desktop_Submit{
+    background-image: linear-gradient(to right, #0a6624 , #10c443);
+    width: fit-content;
+    margin: auto;
+    padding: 7px 32px;
+    border-radius: 50px;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    -ms-border-radius: 50px;
+    -o-border-radius: 50px;
+    color: #fff !important;
+    border: 2px solid #c2bcbc;
+}
+
+.welcomeBack{
+    background-image: linear-gradient(to right, #043f15 , #05ac34);
+    color: #fff !important;
+    position: absolute;
+    top: 30px;
+    left: -20px;
+    padding: 10px 60px;
+    border-radius: 50px;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    -ms-border-radius: 50px;
+    -o-border-radius: 50px;
+}
+.welcomeBack p{
+    font-weight: bold;
+}
+
+.logo{
+    position: absolute;
+    top: 10%;
+    right: 20%;
+}
+.logo img{
+    width: 400px;
+
+}
+
+
+
+
+
+
+
+
+
+
