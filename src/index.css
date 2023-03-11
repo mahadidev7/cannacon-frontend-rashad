@@ -2,9 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-* {
+/* * {
   color: #278843 !important;
-}
+} */
 
 input,
 input:hover,
@@ -80,6 +80,14 @@ input::placeholder {
 
 }
 
+/* singup  */
+@media only screen and (max-width: 600px) {
+  .bg{
+    background-image: url("/images/bg.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+}
 
 
 

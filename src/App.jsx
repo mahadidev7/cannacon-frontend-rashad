@@ -1,14 +1,11 @@
-
-import './App.css'
-import HomePage from './pages/HomePage'
+import Router from "./components/pages/Route/Routes";
 
 function App() {
-
   return (
     <>
-      <HomePage />
+      <Router />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
