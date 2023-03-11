@@ -84,7 +84,7 @@ const Singup = () => {
                     className="mr-2"
                   >
                     {showPassword ? (
-                      <AiFillEyeInvisible size={22} />
+                      <AiFillEyeInvisible size={22} color="#808080" />
                     ) : (
                       <AiFillEye size={22} color="#808080" />
                     )}
