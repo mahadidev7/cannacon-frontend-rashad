@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import * as Yup from "yup";
 import { Field, Form, Formik, ErrorMessage } from "formik";
 import { AiFillEyeInvisible, AiFillEye, AiOutlineMail } from "react-icons/ai";
 import { CiLock } from "react-icons/ci";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { loginUser } from "../../features/users/usersSlice";
 
 const validationSchema = Yup.object().shape({
   email: Yup.string().email("input valid email").required("please enter email"),
@@ -13,11 +15,14 @@ const validationSchema = Yup.object().shape({
 });
 
 function HomePage() {
+  const { user, isLoading, isError } = useSelector((state) => state.users);
   const [showPassword, setShowPassword] = useState(false);
-
+  const dispatch = useDispatch();
   const handlesubmit = (values) => {
-    console.log(values);
+    dispatch(loginUser(values));
   };
+
+  console.log(user);
 
   return (
     <>
@@ -86,8 +91,15 @@ function HomePage() {
                 </Formik>
 
                 <div className="flex flex-col text-center gap-5 mt-5">
-                    <Link to="/singup"  className="font-semibold text-[#0a501e]">Create Account</Link>
-                    <Link to="/" className="font-semibold text-[#0a501e] underline">Forgot Password?</Link>
+                  <Link to="/singup" className="font-semibold text-[#0a501e]">
+                    Create Account
+                  </Link>
+                  <Link
+                    to="/"
+                    className="font-semibold text-[#0a501e] underline"
+                  >
+                    Forgot Password?
+                  </Link>
                   {/* <a
                     href="#"
                     className="mt-9 font-semibold border-b-2 border-[#0a501e] w-fit text-center mx-auto"
@@ -110,10 +122,14 @@ function HomePage() {
       <div className="home_bg w-full h-screen mx-auto container block sm:hidden">
         <div className="flex flex-col justify-between h-screen">
           <h1 className="capitalize text-white font-medium text-3xl p-3 py-6">
-            Welcome <br/> Back
+            Welcome <br /> Back
           </h1>
           <div className=" px-5 bg-[#ffffff] pb-4 relative">
-            <img src="/images/wave.svg" alt=""  className="absolute bottom-full left-0 w-screen"/>
+            <img
+              src="/images/wave.svg"
+              alt=""
+              className="absolute bottom-full left-0 w-screen"
+            />
             <div className=" ">
               <Formik
                 initialValues={{ email: "", password: "" }}
@@ -167,7 +183,7 @@ function HomePage() {
                     <button
                       className="border border-blue-700 bg-blue-700 rounded-md text-center font-medium w-full py-2 text-white text-lg mt-3"
                       type="submit"
-                      disabled={Object.keys(errors).length !== 0}
+                      disabled={Object.keys(errors).length !== 0 || isLoading}
                     >
                       Log in
                     </button>

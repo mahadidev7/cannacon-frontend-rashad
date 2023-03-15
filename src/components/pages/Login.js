@@ -4,6 +4,8 @@ import { Field, Form, Formik, ErrorMessage } from "formik";
 import { AiFillEyeInvisible, AiFillEye, AiOutlineMail } from "react-icons/ai";
 import { CiLock } from "react-icons/ci";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { loginUser } from "../../features/users/usersSlice";
 
 const validationSchema = Yup.object().shape({
   email: Yup.string().email("input valid email").required("please enter email"),
@@ -14,10 +16,8 @@ const validationSchema = Yup.object().shape({
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
-
-  const handlesubmit = (values) => {
-    console.log(values);
-  };
+  const dispatch = useDispatch();
+  const handlesubmit = (values) => {};
   return (
     <div className="bg w-full h-screen mx-auto container block sm:hidden">
       <div className="h-60 w-full px-5">
